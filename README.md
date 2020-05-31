@@ -1,4 +1,4 @@
-# fa-simple-jwt-authentication
+# social-simple-jwt-authentication
 This is a customized jwt authentication WP plugin based on [Jonathan Dejong's simple-jwt-authentication](https://github.com/jonathan-dejong/simple-jwt-authentication).
 
 ## What's added?
