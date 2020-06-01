@@ -200,6 +200,7 @@ class Simple_Jwt_Authentication_Rest {
 					'last_name'  => $last_name,
 					'user_pass'  => wp_generate_password( 12, true, false ),
 				) );
+				$new_user = true;
 			}
 		}
 
@@ -264,6 +265,8 @@ class Simple_Jwt_Authentication_Rest {
 			'user_nicename'     => $user->data->user_nicename,
 			'user_display_name' => $user->data->display_name,
 			'token_expires'     => $expire,
+			'strategy'          => $strategy,
+			'new_user'          => $new_user,  
 		);
 
 		// Let the user modify the data before send it back.
