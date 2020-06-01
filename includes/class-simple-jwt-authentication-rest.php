@@ -259,14 +259,14 @@ class Simple_Jwt_Authentication_Rest {
 
 		// The token is signed, now create the object with no sensible user data to the client.
 		$data = array(
-			'token'             => $token,
-			'user_id'           => $user->data->ID,
-			'user_email'        => $user->data->user_email,
-			'user_nicename'     => $user->data->user_nicename,
-			'user_display_name' => $user->data->display_name,
-			'token_expires'     => $expire,
-			'strategy'          => $strategy,
-			'new_user'          => $new_user,  
+			'token'         => $token,
+			'id'            => $user->data->ID,
+			'email'         => $user->data->user_email,
+			'nicename'      => $user->data->user_nicename,
+			'display_name'  => $user->data->display_name,
+			'token_expires' => $expire,
+			'strategy'      => $strategy,
+			'new_user'      => $new_user,  
 		);
 
 		// Let the user modify the data before send it back.
@@ -529,12 +529,12 @@ class Simple_Jwt_Authentication_Rest {
 
 		// The token is signed, now create the object with no sensible user data to the client.
 		$data = array(
-			'token'             => $token,
-			'user_id'           => $user->data->ID,
-			'user_email'        => $user->data->user_email,
-			'user_nicename'     => $user->data->user_nicename,
-			'user_display_name' => $user->data->display_name,
-			'token_expires'     => $expire,
+			'token'         => $token,
+			'id'            => $user->data->ID,
+			'email'         => $user->data->user_email,
+			'nicename'      => $user->data->user_nicename,
+			'display_name'  => $user->data->display_name,
+			'token_expires' => $expire,
 		);
 
 		// Let the user modify the data before send it back.
