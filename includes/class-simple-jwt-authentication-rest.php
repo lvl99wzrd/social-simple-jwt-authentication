@@ -669,12 +669,18 @@ class Simple_Jwt_Authentication_Rest {
 			$blogname = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
 		}
 		// translators: %s is the sites name (blogname)
-		$title = sprintf( __( '[%s] Password Reset' ), $blogname );
+    $title = sprintf( __( '[%s] Password Reset' ), $blogname );
+    
+    $admin_email = get_option( 'admin_email' );
+    $headers = array( "From: {$blogname} <{$admin_email}>" );
 
 		$title   = apply_filters( 'retrieve_password_title', $title, $user_data );
-		$message = apply_filters( 'retrieve_password_message', $message, $key, $user_data );
+    $message = apply_filters( 'retrieve_password_message', $message, $key, $user_data );
+    $headers = apply_filters( 'retrieve_password_headers', $headers );
+    
+    $email_sent = wp_mail( $user_email, $title, $message, $headers );
 
-		if ( $message && ! wp_mail( $user_email, $title, $message ) ) {
+		if ( $message && ! $email_sent ) {
 			wp_die( __( 'The e-mail could not be sent.' ) . "<br />\n" . __( 'Possible reason: your host may have disabled the mail() function...' ) ); // phpcs:ignore
 		}
 
